@@ -7,15 +7,15 @@ int main(int argc,char *argv[])
         fprintf(stderr," Usage : ./recover card.raw");
         return 1;
     }
-    char *card.raw=argv[1];
     
-    FILE*inptr=fopen(card.raw,"r");
+     
+    FILE*inptr=fopen(argv[1],"r");
     if(inptr==NULL)
     {
         fprintf(stderr,"couldn't open the file");
         return 2;
     }
-    unsigned char buffer[512]
+    unsigned char buffer[512];
     
     int files_found=0;
     
@@ -29,9 +29,9 @@ int main(int argc,char *argv[])
         if(img!=NULL)
         fclose(img);
         
-        char filename[8]
+        char filename[8];
         sprintf(filename,"%03i.jpg",files_found);
-        FILE*img=fopen(filename,"w");
+        img=fopen(filename,"w");
         
         files_found++;
         
@@ -44,4 +44,5 @@ int main(int argc,char *argv[])
     if(img!=NULL)
     fclose(img);
     fclose(inptr);
+    return 0;
 }
