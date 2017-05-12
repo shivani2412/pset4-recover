@@ -28,9 +28,20 @@ int main(int argc,char *argv[])
     {   
         if(img!=NULL)
         fclose(img);
-        char filename[512]
+        
+        char filename[8]
         sprintf(filename,"%03i.jpg",files_found);
         FILE*img=fopen(filename,"w");
         
+        files_found++;
+        
     }
+    if(img!=NULL)
+    {
+        fwrite(buffer,512,1,img);
+    }
+    }
+    if(img!=NULL)
+    fclose(img);
+    fclose(inptr);
 }
