@@ -4,7 +4,7 @@ int main(int argc,char *argv[])
 {
     if(argc!=2)
     {
-        fprintf(stderr," Usage : ./recover card.raw");
+        fprintf(stderr," Usage : ./recover card.raw\n");
         return 1;
     }
     
